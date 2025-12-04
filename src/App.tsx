@@ -14,6 +14,7 @@ import { PayIn } from './pages/PayIn'
 import { AdminDashboard } from './pages/AdminDashboard'
 import { ManageUsers } from './pages/ManageUsers'
 import { BulkPayout } from './pages/BulkPayout'
+import { AdminCommercials } from './pages/AdminCommercials'
 
 function ProtectedAppShell() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
                 <Route path="/adminDashboard" element={<AdminDashboard />} />
                 <Route path="/manage-users" element={<ManageUsers />} />
                 <Route path="/bulk-payout" element={<BulkPayout />} />
+                <Route path="/admin-commercials" element={<AdminCommercials />} />
               </Route>
 
               <Route path="*" element={<Navigate to="/" replace />} />

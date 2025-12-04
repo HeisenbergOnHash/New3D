@@ -27,6 +27,7 @@ export function Layout({ children }: LayoutProps) {
   const adminLinks = [
     { label: 'Dashboard', to: '/adminDashboard' },
     { label: 'Manage Users', to: '/manage-users' },
+    { label: 'Commercials', to: '/admin-commercials' },
   ]
 
   const links = isAdmin ? adminLinks : userLinks
