@@ -23,11 +23,6 @@ export function ManageUsers() {
     )
   }
 
-  const setKycStatus = (userId: string, status: AdminUserSummary['kycStatus']) => {
-    setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, kycStatus: status } : u)))
-    addToast(`KYC marked as ${status} for ${userId} (mock).`, 'success')
-  }
-
   const handleCredit = (userId: string) => {
     addToast(`Credit flow for ${userId} would open here (mock).`, 'info')
   }
