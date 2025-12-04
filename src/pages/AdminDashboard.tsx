@@ -18,27 +18,27 @@ export function AdminDashboard() {
         title="Admin dashboard"
         subtitle="Master wallet, merchant network and onboarding pipeline at a glance."
         right={
-          <span className="inline-flex items-center gap-1 rounded-full bg-surface-elevated/80 px-3 py-1 text-[11px] text-text-secondary ring-1 ring-border-subtle/80">
-            <ShieldCheck className="h-3 w-3 text-emerald-400" />
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-elevated/80 px-4 py-1.5 text-sm text-text-secondary ring-1 ring-border-subtle/80">
+            <ShieldCheck className="h-4 w-4 text-emerald-400" />
             Admin mode • kuberanpay
           </span>
         }
       />
 
       <motion.div
-        className="grid gap-3 md:grid-cols-3"
+        className="grid gap-4 md:grid-cols-3"
         variants={fadeInUp}
         initial="initial"
         animate="animate"
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <div className="glass-card flex items-start justify-between p-4 text-xs text-text-secondary">
+        <div className="glass-card flex items-start justify-between p-5 text-sm text-text-secondary md:text-base">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-text-secondary">
+            <p className="text-sm font-medium uppercase tracking-[0.16em] text-text-secondary">
               Master wallet balance
             </p>
-            <p className="mt-1 text-lg font-semibold text-slate-50">{mockAdminWallet.balance}</p>
-            <p className="mt-1 text-[11px] text-text-secondary">
+            <p className="mt-2 text-2xl font-semibold text-slate-50">{mockAdminWallet.balance}</p>
+            <p className="mt-2 text-sm text-text-secondary md:text-base">
               Reserved float: <span className="font-medium">{mockAdminWallet.reserved}</span>
             </p>
           </div>
@@ -46,15 +46,15 @@ export function AdminDashboard() {
             <ArrowDownRight className="h-4 w-4 text-emerald-400" />
           </div>
         </div>
-        <div className="glass-card flex items-start justify-between p-4 text-xs text-text-secondary">
+        <div className="glass-card flex items-start justify-between p-5 text-sm text-text-secondary md:text-base">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-text-secondary">
+            <p className="text-sm font-medium uppercase tracking-[0.16em] text-text-secondary">
               Today&apos;s settlements
             </p>
-            <p className="mt-1 text-lg font-semibold text-slate-50">
+            <p className="mt-2 text-2xl font-semibold text-slate-50">
               {mockAdminWallet.settlementsToday}
             </p>
-            <p className="mt-1 text-[11px] text-text-secondary">
+            <p className="mt-2 text-sm text-text-secondary md:text-base">
               Net across BBPS, QR and payouts for T+0 settlement.
             </p>
           </div>
@@ -62,13 +62,13 @@ export function AdminDashboard() {
             <ArrowUpRight className="h-4 w-4 text-sky-400" />
           </div>
         </div>
-        <div className="glass-card flex items-start justify-between p-4 text-xs text-text-secondary">
+        <div className="glass-card flex items-start justify-between p-5 text-sm text-text-secondary md:text-base">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-text-secondary">
+            <p className="text-sm font-medium uppercase tracking-[0.16em] text-text-secondary">
               Active merchants
             </p>
-            <p className="mt-1 text-lg font-semibold text-slate-50">{approvedUsers}</p>
-            <p className="mt-1 text-[11px] text-text-secondary">
+            <p className="mt-2 text-2xl font-semibold text-slate-50">{approvedUsers}</p>
+            <p className="mt-2 text-sm text-text-secondary md:text-base">
               Approved users with at least one capability enabled.
             </p>
           </div>
@@ -90,9 +90,9 @@ export function AdminDashboard() {
           subtitle="Approve merchants and agents before enabling payouts and BBPS."
         >
           {mockPendingRequests.length === 0 ? (
-            <p className="text-[11px] text-text-secondary">No pending requests right now.</p>
+            <p className="text-sm text-text-secondary md:text-base">No pending requests right now.</p>
           ) : (
-            <ul className="space-y-2 text-[11px]">
+            <ul className="space-y-2 text-sm md:text-base">
               {mockPendingRequests.map((req) => (
                 <li
                   key={req.id}
@@ -101,13 +101,13 @@ export function AdminDashboard() {
                   <div>
                     <p className="font-medium text-text-primary">
                       {req.name}{' '}
-                      <span className="text-[10px] text-text-secondary">({req.phone})</span>
+                      <span className="text-xs text-text-secondary md:text-sm">({req.phone})</span>
                     </p>
-                    <p className="text-[10px] text-text-secondary">
+                    <p className="text-xs text-text-secondary md:text-sm">
                       {req.business} • {req.requestedAt}
                     </p>
                   </div>
-                  <div className="flex gap-1 text-[10px]">
+                  <div className="flex gap-1 text-xs md:text-sm">
                     <button className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-emerald-300">
                       Approve
                     </button>
@@ -125,7 +125,7 @@ export function AdminDashboard() {
           title="Capability overview"
           subtitle="How many users can access payouts, pay‑ins, card pay‑ins and BBPS."
         >
-          <ul className="space-y-1.5 text-[11px]">
+          <ul className="space-y-1.5 text-sm md:text-base">
             <li className="flex items-center justify-between rounded-xl bg-surface-elevated/80 px-2 py-1.5">
               <span>Payout enabled</span>
               <span className="font-semibold text-emerald-300">

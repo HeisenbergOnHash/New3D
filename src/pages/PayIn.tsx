@@ -22,8 +22,8 @@ export function PayIn() {
         title="Pay‑in"
         subtitle="Manage QR codes and BBPS pay‑ins that top up your kuberanpay wallet."
         right={
-          <span className="inline-flex items-center gap-1 rounded-full bg-surface-elevated/80 px-3 py-1 text-[11px] text-text-secondary ring-1 ring-border-subtle/80">
-            <Wallet className="h-3 w-3" />
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-elevated/80 px-4 py-1.5 text-sm text-text-secondary ring-1 ring-border-subtle/80">
+            <Wallet className="h-4 w-4" />
             Wallet top‑ups
           </span>
         }
@@ -39,14 +39,14 @@ export function PayIn() {
           title="Pay‑in QR management"
           subtitle="Issue and rotate static or dynamic QR codes for collections."
         >
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-md text-[11px]">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-md text-sm md:text-base">
               <p>
                 Use static QR for always‑on collections at your outlets, or dynamic QR for
                 invoice‑linked and one‑time payments. kuberanpay keeps both in sync with your
                 wallet.
               </p>
-              <p className="mt-2 text-[10px] text-text-secondary">
+              <p className="mt-3 text-xs text-text-secondary md:text-sm">
                 BBPS and UPI QR support mean your merchants can accept payments across a wide range
                 of billers and banks.
               </p>
@@ -69,7 +69,7 @@ export function PayIn() {
                   Generate QR
                 </Button>
               </div>
-              <span className="text-[10px] text-text-secondary">
+              <span className="text-xs text-text-secondary md:text-sm">
                 You can rotate QR codes safely without disrupting settlement flows.
               </span>
             </div>
@@ -80,18 +80,22 @@ export function PayIn() {
           title="Recent pay‑ins"
           subtitle="Sample entries showing how BBPS and QR top up your wallet."
         >
-          <ul className="space-y-2 text-[11px]">
-            <li className="flex items-center justify-between rounded-xl bg-surface-elevated/80 px-2 py-1.5">
+          <ul className="space-y-2 text-sm md:text-base">
+            <li className="flex items-center justify-between rounded-xl bg-surface-elevated/80 px-3 py-2">
               <div>
                 <p className="font-medium text-text-primary">BBPS – Electricity</p>
-                <p className="text-[10px] text-text-secondary">Store 05 • Today • 10:22 AM</p>
+                <p className="text-xs text-text-secondary md:text-sm">
+                  Store 05 • Today • 10:22 AM
+                </p>
               </div>
               <p className="font-semibold text-emerald-300">+ ₹1,980</p>
             </li>
-            <li className="flex items-center justify-between rounded-xl bg-surface-elevated/80 px-2 py-1.5">
+            <li className="flex items-center justify-between rounded-xl bg-surface-elevated/80 px-3 py-2">
               <div>
                 <p className="font-medium text-text-primary">Dynamic QR – Food court</p>
-                <p className="text-[10px] text-text-secondary">Mall hub • Yesterday • 08:17 PM</p>
+                <p className="text-xs text-text-secondary md:text-sm">
+                  Mall hub • Yesterday • 08:17 PM
+                </p>
               </div>
               <p className="font-semibold text-emerald-300">+ ₹3,200</p>
             </li>

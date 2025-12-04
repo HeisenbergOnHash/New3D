@@ -39,15 +39,15 @@ export function BulkPayout() {
         title="Bulk payout"
         subtitle="Upload a single file to trigger payouts for hundreds or thousands of beneficiaries."
         right={
-          <span className="inline-flex items-center gap-1 rounded-full bg-surface-elevated/80 px-3 py-1 text-[11px] text-text-secondary ring-1 ring-border-subtle/80">
-            <FileSpreadsheet className="h-3 w-3" />
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-elevated/80 px-4 py-1.5 text-sm text-text-secondary ring-1 ring-border-subtle/80">
+            <FileSpreadsheet className="h-4 w-4" />
             CSV / XLSX supported
           </span>
         }
       />
 
       <motion.div
-        className="grid gap-3 md:grid-cols-[minmax(0,2fr)_minmax(0,1.5fr)]"
+        className="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,1.5fr)]"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -65,14 +65,14 @@ export function BulkPayout() {
               Download template
             </Button>
           }
-        >
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-md text-[11px]">
+          >
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-md text-sm md:text-base">
               <p>
                 kuberanpay validates each row for account format, IFSC, duplicate detection and
                 available wallet balance before sending payouts to the bank.
               </p>
-              <p className="mt-2 text-[10px] text-text-secondary">
+              <p className="mt-3 text-xs text-text-secondary md:text-sm">
                 You can group rows by business purpose (salary, vendor, refund) to simplify
                 approvals and reconciliation.
               </p>
@@ -86,7 +86,7 @@ export function BulkPayout() {
               >
                 Upload payout file
               </Button>
-              <span className="text-[10px] text-text-secondary">
+              <span className="text-xs text-text-secondary md:text-sm">
                 Max 5,000 rows per file • Larger volumes can be split across batches.
               </span>
             </div>
@@ -97,13 +97,13 @@ export function BulkPayout() {
           title="Recent bulk batches"
           subtitle="Illustrative history of previously uploaded payout batches."
           right={
-            <span className="inline-flex items-center gap-1 text-[11px] text-text-secondary">
+            <span className="inline-flex items-center gap-1 text-sm text-text-secondary md:text-base">
               <ListChecks className="h-3 w-3" />
               Validation summary
             </span>
           }
         >
-          <ul className="space-y-2 text-[11px]">
+          <ul className="space-y-2 text-sm md:text-base">
             {mockBatches.map((batch) => (
               <li
                 key={batch.id}
@@ -111,9 +111,9 @@ export function BulkPayout() {
               >
                 <div>
                   <p className="font-medium text-text-primary">{batch.id}</p>
-                  <p className="text-[10px] text-text-secondary">{batch.createdAt}</p>
+                  <p className="text-xs text-text-secondary md:text-sm">{batch.createdAt}</p>
                 </div>
-                <div className="text-right text-[10px] text-text-secondary">
+                <div className="text-right text-xs text-text-secondary md:text-sm">
                   <p>
                     Rows: <span className="font-semibold text-text-primary">{batch.rows}</span>
                   </p>

@@ -31,15 +31,15 @@ export function Payout() {
         title="Transfer funds"
         subtitle="Move money from your kuberanpay wallet via single or bulk payouts."
         right={
-          <span className="inline-flex items-center gap-1 rounded-full bg-surface-elevated/80 px-3 py-1 text-[11px] text-text-secondary ring-1 ring-border-subtle/80">
-            <ArrowRightLeft className="h-3 w-3" />
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-elevated/80 px-4 py-1.5 text-sm text-text-secondary ring-1 ring-border-subtle/80">
+            <ArrowRightLeft className="h-4 w-4" />
             UPI / IMPS / NEFT supported
           </span>
         }
       />
 
       <motion.div
-        className="inline-flex rounded-full bg-surface-elevated/80 p-1 text-[11px] text-text-secondary ring-1 ring-border-subtle/80"
+        className="inline-flex rounded-full bg-surface-elevated/80 p-1.5 text-sm text-text-secondary ring-1 ring-border-subtle/80 md:text-base"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -47,7 +47,7 @@ export function Payout() {
         <button
           type="button"
           onClick={() => setMode('single')}
-          className={`rounded-full px-3 py-1 ${
+          className={`rounded-full px-4 py-1.5 ${
             mode === 'single'
               ? 'bg-gradient-primary text-sky-50 shadow-[var(--shadow-soft)]'
               : 'text-text-secondary'
@@ -58,7 +58,7 @@ export function Payout() {
         <button
           type="button"
           onClick={() => setMode('bulk')}
-          className={`rounded-full px-3 py-1 ${
+          className={`rounded-full px-4 py-1.5 ${
             mode === 'bulk'
               ? 'bg-gradient-primary text-sky-50 shadow-[var(--shadow-soft)]'
               : 'text-text-secondary'
@@ -73,51 +73,55 @@ export function Payout() {
           title="Bank transfer details"
           subtitle="Send a single payout to a beneficiary account."
         >
-          <form onSubmit={handleSingleSubmit} className="grid gap-3 md:grid-cols-2">
-            <div className="space-y-1">
-              <label className="block text-[11px] font-medium text-text-secondary">
+          <form onSubmit={handleSingleSubmit} className="grid gap-4 md:grid-cols-2">
+            <div className="space-y-1.5">
+              <label className="block text-sm font-medium text-text-secondary md:text-base">
                 Beneficiary name
               </label>
               <input
                 required
-                className="h-8 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-2 text-xs text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1"
+                className="h-10 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-3 text-sm text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1 md:text-base"
                 placeholder="Acme Vendor Pvt. Ltd."
               />
             </div>
-            <div className="space-y-1">
-              <label className="block text-[11px] font-medium text-text-secondary">
+            <div className="space-y-1.5">
+              <label className="block text-sm font-medium text-text-secondary md:text-base">
                 Account number
               </label>
               <input
                 required
-                className="h-8 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-2 text-xs text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1"
+                className="h-10 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-3 text-sm text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1 md:text-base"
                 placeholder="0000 0000 0000"
               />
             </div>
-            <div className="space-y-1">
-              <label className="block text-[11px] font-medium text-text-secondary">IFSC code</label>
+            <div className="space-y-1.5">
+              <label className="block text-sm font-medium text-text-secondary md:text-base">
+                IFSC code
+              </label>
               <input
                 required
-                className="h-8 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-2 text-xs text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1"
+                className="h-10 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-3 text-sm text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1 md:text-base"
                 placeholder="HDFC0001234"
               />
             </div>
-            <div className="space-y-1">
-              <label className="block text-[11px] font-medium text-text-secondary">Amount</label>
+            <div className="space-y-1.5">
+              <label className="block text-sm font-medium text-text-secondary md:text-base">
+                Amount
+              </label>
               <input
                 required
                 type="number"
                 min={1}
-                className="h-8 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-2 text-xs text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1"
+                className="h-10 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-3 text-sm text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1 md:text-base"
                 placeholder="₹10,000"
               />
             </div>
-            <div className="space-y-1 md:col-span-2">
-              <label className="block text-[11px] font-medium text-text-secondary">
+            <div className="space-y-1.5 md:col-span-2">
+              <label className="block text-sm font-medium text-text-secondary md:text-base">
                 Narration / purpose
               </label>
               <input
-                className="h-8 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-2 text-xs text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1"
+                className="h-10 w-full rounded-lg border border-border-subtle/80 bg-surface-elevated/80 px-3 text-sm text-text-primary outline-none ring-primary/40 placeholder:text-text-secondary/50 focus:ring-1 md:text-base"
                 placeholder="Vendor settlement / salary / refund"
               />
             </div>
@@ -143,13 +147,13 @@ export function Payout() {
             </Button>
           }
         >
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-md text-[11px]">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-md text-sm md:text-base">
               <p>
                 Your file should contain beneficiary name, account number, IFSC, amount and
                 narration. kuberanpay will validate each row before sending payouts.
               </p>
-              <p className="mt-2 text-[10px] text-text-secondary">
+              <p className="mt-3 text-xs text-text-secondary md:text-sm">
                 Tip: keep batches focused by business purpose to simplify reconciliation.
               </p>
             </div>
@@ -157,12 +161,12 @@ export function Payout() {
               <Button
                 variant="secondary"
                 size="sm"
-                iconLeft={<UploadCloud className="h-3 w-3" />}
+                iconLeft={<UploadCloud className="h-4 w-4" />}
                 onClick={handleBulkUpload}
               >
                 Upload payout file
               </Button>
-              <span className="text-[10px] text-text-secondary">Max 5,000 rows per file.</span>
+              <span className="text-xs text-text-secondary md:text-sm">Max 5,000 rows per file.</span>
             </div>
           </div>
         </Card>

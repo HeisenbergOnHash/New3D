@@ -81,12 +81,12 @@ export function History() {
       />
 
       <motion.div
-        className="flex flex-wrap items-center justify-between gap-3"
+        className="flex flex-wrap items-center justify-between gap-4"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <div className="inline-flex rounded-full bg-surface-elevated/80 p-1 text-[11px] text-text-secondary ring-1 ring-border-subtle/80">
+        <div className="inline-flex rounded-full bg-surface-elevated/80 p-1.5 text-sm text-text-secondary ring-1 ring-border-subtle/80">
           <button
             type="button"
             onClick={() => setTab('payout')}
@@ -111,8 +111,8 @@ export function History() {
           </button>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 text-[11px] text-text-secondary">
-          <Filter className="h-3 w-3" />
+        <div className="flex flex-wrap items-center gap-2.5 text-sm text-text-secondary md:text-base">
+          <Filter className="h-4 w-4" />
           <span>Date filters &amp; quick ranges can plug in here.</span>
         </div>
       </motion.div>
@@ -126,9 +126,9 @@ export function History() {
         }
       >
         <div className="overflow-x-auto">
-          <table className="min-w-full border-separate border-spacing-y-1 text-xs">
+          <table className="min-w-full border-separate border-spacing-y-1 text-sm md:text-base">
             <thead>
-              <tr className="text-[11px] text-text-secondary">
+              <tr className="text-sm text-text-secondary md:text-base">
                 <th className="pb-1 text-left font-medium">Txn ID</th>
                 <th className="pb-1 text-left font-medium">Date</th>
                 <th className="pb-1 text-left font-medium">Counterparty</th>
@@ -136,21 +136,21 @@ export function History() {
                 <th className="pb-1 text-left font-medium">Status</th>
               </tr>
             </thead>
-            <tbody>
+              <tbody>
               {filtered.map((row) => (
                 <tr key={row.id} className="align-top">
-                  <td className="rounded-l-xl bg-surface-elevated/80 px-2 py-2 font-mono text-[11px]">
+                  <td className="rounded-l-xl bg-surface-elevated/80 px-3 py-2 font-mono text-sm md:text-base">
                     {row.id}
                   </td>
-                  <td className="bg-surface-elevated/80 px-2 py-2">
+                  <td className="bg-surface-elevated/80 px-3 py-2">
                     {row.date}
-                    <span className="block text-[10px] text-text-secondary">{row.time}</span>
+                    <span className="block text-xs text-text-secondary">{row.time}</span>
                   </td>
-                  <td className="bg-surface-elevated/80 px-2 py-2">{row.counterparty}</td>
-                  <td className="bg-surface-elevated/80 px-2 py-2">{row.amount}</td>
-                  <td className="rounded-r-xl bg-surface-elevated/80 px-2 py-2">
+                  <td className="bg-surface-elevated/80 px-3 py-2">{row.counterparty}</td>
+                  <td className="bg-surface-elevated/80 px-3 py-2">{row.amount}</td>
+                  <td className="rounded-r-xl bg-surface-elevated/80 px-3 py-2">
                     <span
-                      className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                      className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${
                         row.status === 'success'
                           ? 'bg-emerald-500/10 text-emerald-300'
                           : row.status === 'pending'
