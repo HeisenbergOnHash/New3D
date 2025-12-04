@@ -1,0 +1,110 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #020617;
+  --color-surface: #020617;
+  --color-surface-elevated: rgba(15, 23, 42, 0.9);
+  --color-border-subtle: rgba(148, 163, 184, 0.3);
+  --color-primary: #7c3aed;
+  --color-primary-soft: rgba(129, 140, 248, 0.2);
+  --color-secondary: #06b6d4;
+  --color-accent: #a855f7;
+  --color-text-primary: #e5e7eb;
+  --color-text-secondary: #9ca3af;
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-error: #ef4444;
+  --color-muted: #4b5563;
+
+  --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.75);
+  --shadow-medium: 0 24px 80px rgba(15, 23, 42, 0.85);
+  --shadow-large: 0 32px 120px rgba(15, 23, 42, 0.95);
+
+  --animate-float-slow: float-slow 18s ease-in-out infinite;
+  --animate-float-medium: float-medium 12s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-text-primary antialiased;
+  }
+
+  * {
+    @apply border-border-subtle;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-border-subtle/60 bg-surface-elevated/90 backdrop-blur-xl shadow-[var(--shadow-soft)];
+  }
+
+  .nav-glow {
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.75);
+  }
+
+  .bg-gradient-primary {
+    background-image: linear-gradient(135deg, #0f172a 0%, #4c1d95 40%, #7c3aed 100%);
+  }
+
+  .bg-gradient-secondary {
+    background-image: linear-gradient(135deg, #0f172a 0%, #0f766e 40%, #22d3ee 100%);
+  }
+
+  .bg-gradient-accent {
+    background-image: linear-gradient(135deg, #581c87 0%, #a855f7 45%, #22d3ee 100%);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate3d(0, 0, 1, 2deg);
+  }
+}
+
+@keyframes float-medium {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
+  }
+  50% {
+    transform: translate3d(0, -20px, 0) rotate3d(0, 0, 1, -3deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

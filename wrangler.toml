@@ -1,0 +1,8 @@
+name = "kuberanpay"
+compatibility_date = "2025-01-01"
+
+# Build the Vite app with `npm run build`, then serve the static assets via
+# Cloudflare Pages infrastructure (backed by Workers).
+pages_build_output_dir = "dist"
+
+
