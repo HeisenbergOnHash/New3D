@@ -107,10 +107,10 @@ export function Landing() {
                 <KuberaIcon size={24} />
               </motion.div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-text-secondary">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-text-secondary">
                   kuberanpay
                 </p>
-                <p className="text-base font-semibold text-text-primary/90">
+                <p className="text-sm font-semibold text-text-primary/90">
                   Full‑stack online banking &amp; utility payments
                 </p>
               </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Download, Filter } from 'lucide-react'
+import { Download, Filter, Calendar } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { PageHeader } from '../components/ui/PageHeader'
 import { Button } from '../components/ui/Button'
@@ -41,9 +41,25 @@ const rows = [
 
 export function History() {
   const [tab, setTab] = useState<HistoryTab>('payout')
+  const [fromDate, setFromDate] = useState<string>('')
+  const [toDate, setToDate] = useState<string>('')
   const { addToast } = useToast()
 
-  const filtered = rows.filter((row) => row.type === tab)
+  const filtered = rows.filter((row) => {
+    if (row.type !== tab) return false
+
+    const rowDate = new Date(row.date)
+    if (fromDate) {
+      const start = new Date(fromDate)
+      if (rowDate < start) return false
+    }
+    if (toDate) {
+      const end = new Date(toDate)
+      end.setHours(23, 59, 59, 999)
+      if (rowDate > end) return false
+    }
+    return true
+  })
 
   const handleExport = () => {
     if (!filtered.length) {
@@ -111,9 +127,48 @@ export function History() {
           </button>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2.5 text-sm text-text-secondary md:text-base">
-          <Filter className="h-4 w-4" />
-          <span>Date filters &amp; quick ranges can plug in here.</span>
+        <div className="flex flex-wrap items-center gap-3 text-sm text-text-secondary md:text-base">
+          <div className="inline-flex items-center gap-2 rounded-full bg-surface-elevated/80 px-3 py-1.5 ring-1 ring-border-subtle/80">
+            <Calendar className="h-4 w-4" />
+            <span className="hidden text-xs uppercase tracking-[0.18em] text-text-secondary md:inline">
+              Date range
+            </span>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <label className="flex items-center gap-2 text-xs md:text-sm">
+              <span className="text-text-secondary">From</span>
+              <input
+                type="text"
+                placeholder="YYYY-MM-DD"
+                value={fromDate}
+                onChange={(e) => setFromDate(e.target.value)}
+                className="h-8 rounded-lg bg-surface-elevated/80 px-2 text-xs text-text-primary outline-none ring-1 ring-border-subtle/80 focus:ring-primary/60 md:text-sm"
+              />
+            </label>
+            <label className="flex items-center gap-2 text-xs md:text-sm">
+              <span className="text-text-secondary">To</span>
+              <input
+                type="text"
+                placeholder="YYYY-MM-DD"
+                value={toDate}
+                onChange={(e) => setToDate(e.target.value)}
+                className="h-8 rounded-lg bg-surface-elevated/80 px-2 text-xs text-text-primary outline-none ring-1 ring-border-subtle/80 focus:ring-primary/60 md:text-sm"
+              />
+            </label>
+            {(fromDate || toDate) && (
+              <button
+                type="button"
+                onClick={() => {
+                  setFromDate('')
+                  setToDate('')
+                }}
+                className="inline-flex items-center gap-1 rounded-full bg-surface-elevated/80 px-3 py-1 text-xs text-text-secondary ring-1 ring-border-subtle/80 hover:bg-surface-elevated hover:text-text-primary hover:ring-primary/70 md:text-sm"
+              >
+                <Filter className="h-3 w-3" />
+                Clear
+              </button>
+            )}
+          </div>
         </div>
       </motion.div>
 

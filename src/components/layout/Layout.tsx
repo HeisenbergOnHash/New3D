@@ -40,10 +40,10 @@ export function Layout({ children }: LayoutProps) {
               <KuberaIcon size={22} />
             </div>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-text-secondary">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-secondary">
                 kuberanpay
               </p>
-              <p className="text-base font-semibold text-text-primary/90">
+              <p className="text-sm font-semibold text-text-primary/90">
                 Orchestrated money movement
               </p>
             </div>
